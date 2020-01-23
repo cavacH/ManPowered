@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hard Hat Detection</title>
+  <link href="https://cdn.bootcss.com/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/semantic-ui/2.3.1/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <style>
+    video {
+      max-width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ui menu">
+    <div class="ui container">
+      <div class="header item">
+        ManPowered
+      </div>
+      <div class="right menu">
+        <div class="item" id="fps">
+        </div>
+        <div class="item">
+          <a onclick="popup_modal()">
+            <i class="add icon"></i>添加监控
+          </a>
+        </div>
+        <div class="item">
+          <a href="#">
+            <i class="sign in icon"></i>登录
+          </a>
+        </div>
+        <div class="item">
+          <a href="#">
+            <i class="add user icon"></i>注册
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui container">
+    <div class="ui grid">
+      <div class="ui one column centered row" id="row1">
+        <!-- div class="column">
+        </div -->
+        <div class="column" style="text-align: center">
+          <img style="margin: auto" id="image-display" />
+        </div>
+      </div>
+      <canvas style="display:none;"></canvas>
+      <video autoplay muted style="display:none;"></video>
+    </div>
+  </div>
+  <div class="ui modal" id="add-camera">
+    <div class="header">添加监控</div>
+    <div class="content">
+      <select class="ui dropdown" id="video-select">
+      </select>
+    </div>
+    <div class="actions">
+      <div class="ui button" onclick="hide_modal()">取消</div>
+      <div class="ui positive button" onclick="add_video()">确定</div>
+    </div>
+  </div>
+  <script src="./snapshot.js"></script>
+</body>
+
+</html>
